@@ -4,12 +4,13 @@
 #include <random>
 
 //add_coordinate: add's a coordinate to the end of the linked list
+static int coord_id_count=0;
 void add_coordinate(Coordinate *list_end, float x, float y){
 //	Coordinate *new_coord=(Coordinate *)malloc(sizeof(Coordinate));
 	Coordinate *new_coord = new Coordinate;
-	new_coordx = x;
+	new_coord->x = x;
 	new_coord-> y = y;
-	new_coord->coord_id=coord_id;
+	new_coord->coord_id=++coord_id_count;
 	new_coord->next=NULL;
 	new_coord->previous=list_end;
 	list_end->next=new_coord;
@@ -40,7 +41,8 @@ void backward_display(Coordinate *list_end){
 
 //delete_coordinate: removes a coordinate from the linked list
 //(free memory!)
-void delete_coordinate(Coordinate *list_beginning, int coord_id_to_delete){
+void delete_coordinate(Coordinate *list_beginning, int coord_id_to_delete)
+{
 	Coordinate *temp = list_beginning;
 	while(temp!=NULL)
 	{
