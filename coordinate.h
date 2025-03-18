@@ -1,6 +1,6 @@
 #ifndef COORDINATE_H
 #define COORDINATE_H
-struct _corrdinate
+struct _coordinate
 {
 	float x;
 	float y;
