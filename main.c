@@ -36,7 +36,7 @@ void backward_display(Coordinate *list_end){
 		printf("coord_id: %d, X: %.2f, Y: %.2f\n", current->coord_id, 
 		current->x, current->y);
 		current = current->previous;
-
+	}
 }
 
 //delete_coordinate: removes a coordinate from the linked list
@@ -88,8 +88,8 @@ void closest_to(Coordinate *list_beginning, float x, float y){
 		}
 		current = current->next;
 	}
-	printf("the coordinate that is closest to (%.2f,%.2f) is Coordinate id: %d, ",x,y, closest_>coord_id)
-	Printf("the distance between the two is %.2f\n",minDistBetween);
+	printf("the coordinate that is closest to (%.2f,%.2f) is Coordinate id: %d, ",x,y, closest->coord_id);
+	printf("the distance between the two is %.2f\n",minDistBetween);
 }
 
 //Use random numbers to fill the x and y coordinates,
@@ -99,6 +99,7 @@ int main(int argc, char *argv[]){
 	Coordinate *list_beginning=NULL;
 	Coordinate *list_end=NULL;
 	int max=10, min =0;
+	int i;
 	for(i=0;i<numCoordinates;i++){
 		float rand_Y_coordinate=std::rand()%(max-min);
 		float rand_X_coordinate=std::rand()%(max-min);
@@ -110,7 +111,7 @@ int main(int argc, char *argv[]){
 //and closest to functions.
 forward_display(list_beginning);
 backward_display(list_end);
-delete_coordinate(list_beginning,coordId);
+delete_coordinate(list_beginning,3);
 closest_to(list_beginning,1,5);
 return 0;
 }
